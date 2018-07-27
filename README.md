@@ -1,4 +1,4 @@
-# Login with Django authorize by MercadoLibre and interact with the API
+# Django interact with MercadoLibreAPI (Login & Create|List products)
 
 A django app that interact with MercadoLibre api  https://developers.mercadolibre.com/en_us/api-docs .
 
