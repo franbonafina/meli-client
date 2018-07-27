@@ -1,25 +1,19 @@
-# Simple Django Login and Registration
+# Login with Django authorize by MercadoLibre and interact with the API
 
-An example of Django project with basic user functionality.
+A django app that interact with MercadoLibre api  https://developers.mercadolibre.com/en_us/api-docs .
 
 
 ## Functionality
 
-- Log in
-    - via username & password
-    - via email & password
-    - via email or username & password
-    - with a remember me checkbox (optional)
-- Create an account
+- Log in (MercadoLibre credentials outh)
+- Create a publication of an particular product .
+- Handle errors .
+- List your active publications .
 - Log out
-- Profile activation via email
-- Reset password
-- Remind a username
-- Resend an activation code
-- Change password
-- Change email
-- Change profile
+- Create an account
+- Change password & Resend an activation code
 - Multilingual: English, Spanish
+
 
 
 ## Installing
