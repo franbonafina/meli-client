@@ -1,6 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: https://github.com/egorsmkv/simple-django-login-and-register\n"
 "POT-Creation-Date: 2018-06-26 10:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -213,28 +212,25 @@ msgid "Your password has been set. You may go ahead and log in now."
 msgstr "Ваш пароль изменен. Теперь вы можете войти."
 
 msgid "English"
-msgstr "Английский"
+msgstr "Ingles"
 
-msgid "Russian"
-msgstr "Русский"
-
-msgid "Simplified Chinese"
-msgstr "Китайский (упрощённый)"
+msgid "Spanish"
+msgstr "Español"
 
 msgid "Home"
-msgstr "Главная"
+msgstr "Inicio"
 
 msgid "Log out"
-msgstr "Выйти"
+msgstr "Salir"
 
 msgid "Change language"
-msgstr "Изменить язык"
+msgstr "Cambiar idioma"
 
 msgid "Select the language"
-msgstr "Выбрать язык"
+msgstr "Seleccioná un idioma"
 
 msgid "Your username is"
-msgstr "Ваше имя пользователя"
+msgstr "Tu usuario es"
 
 msgid "You are a guest."
-msgstr "Вы гость."
+msgstr "Usted es anonimo!"

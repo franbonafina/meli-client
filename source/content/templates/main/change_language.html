@@ -1,20 +1,12 @@
 {% extends 'layouts/default/page.html' %}
-
 {% load i18n %}
-
 {% block content %}
-
     {% get_current_language as language_code %}
     {% get_available_languages as languages %}
-
     <h4>{% trans 'Change language' %}</h4>
-
     <form action="{% url 'set_language' %}" method="post">
-
         {% csrf_token %}
-
         <input name="next" type="hidden" value="{{ redirect_to }}"/>
-
         <div class="form-group">
             <label class="form-control-label" for="language-field">{% trans 'Select the language' %}</label>
             <select name="language" class="form-control" id="language-field">
@@ -25,9 +17,7 @@
                 {% endfor %}
             </select>
         </div>
-
         <button class="btn btn-success">{% trans 'Change' %}</button>
-
     </form>
 
 {% endblock %}

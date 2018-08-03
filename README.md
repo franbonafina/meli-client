@@ -5,13 +5,12 @@ A django app that interact with MercadoLibre api  https://developers.mercadolibr
 
 ## Functionality
 
-- Log in (MercadoLibre credentials outh)
-- Create a publication of an particular product .
-- Handle errors .
+- Log in 
+- Sing Up
+- MercadoLibre outh
+- Create a publication of an particular product .- 
 - List your active publications .
 - Log out
-- Create an account
-- Change password & Resend an activation code
 - Multilingual: English, Spanish
 
 
@@ -21,8 +20,8 @@ A django app that interact with MercadoLibre api  https://developers.mercadolibr
 ### Clone the project
 
 ```
-git clone https://github.com/egorsmkv/simple-django-login-and-register
-cd simple-django-login-and-register
+git clone https://github.com/franbonafina/djangoMercadoLibre
+cd djangoMercadoLibre
 ```
 
 ### Install dependencies & activate virtualenv

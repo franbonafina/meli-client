@@ -1,0 +1,10 @@
+README.md
+setup.py
+meli_python_sdk.egg-info/PKG-INFO
+meli_python_sdk.egg-info/SOURCES.txt
+meli_python_sdk.egg-info/dependency_links.txt
+meli_python_sdk.egg-info/requires.txt
+meli_python_sdk.egg-info/top_level.txt
+melipy/__init__.py
+melipy/core.py
+melipy/meliresources.py

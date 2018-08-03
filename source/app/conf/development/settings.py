@@ -9,10 +9,8 @@ BASE_DIR = dirname(dirname(dirname(dirname(os.path.abspath(__file__)))))
 CONTENT_DIR = os.path.join(BASE_DIR, 'content')
 
 SECRET_KEY = 'NhfTvayqggTBPswCXXhWaN69HuglgZIkM'
-
 DEBUG = True
 ALLOWED_HOSTS = []
-
 SITE_ID = 1
 
 INSTALLED_APPS = [
@@ -21,7 +19,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'django.contrib.sites',
 
     # Vendor apps
@@ -30,6 +27,8 @@ INSTALLED_APPS = [
     # Application apps
     'main',
     'accounts',
+    'melipy',
+    'test'
 ]
 
 MIDDLEWARE = [
@@ -65,11 +64,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = os.path.join(CONTENT_DIR, 'tmp/emails')
-EMAIL_HOST_USER = 'test@example.com'
-DEFAULT_FROM_EMAIL = 'test@example.com'
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -93,39 +87,24 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 ENABLE_USER_ACTIVATION = True
-DISABLE_USERNAME = False
 LOGIN_VIA_EMAIL = True
-LOGIN_VIA_EMAIL_OR_USERNAME = False
+USE_REMEMBER_ME = True
 LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'accounts:log_in'
-USE_REMEMBER_ME = True
-
-RESTORE_PASSWORD_VIA_EMAIL_OR_USERNAME = False
-ENABLE_ACTIVATION_AFTER_EMAIL_CHANGE = True
-
 SIGN_UP_FIELDS = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
-if DISABLE_USERNAME:
-    SIGN_UP_FIELDS = ['first_name', 'last_name', 'email', 'password1', 'password2']
+
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
-
 USE_I18N = True
 USE_L10N = True
 LANGUAGE_CODE = 'en'
 LANGUAGES = [
     ('en', _('English')),
-    ('ru', _('Russian')),
-    ('zh-Hans', _('Simplified Chinese')),
+    ('es', _('Spanish'))    
 ]
 
 TIME_ZONE = 'UTC'
 USE_TZ = True
-
-STATIC_ROOT = os.path.join(CONTENT_DIR, 'static')
-STATIC_URL = '/static/'
-
-MEDIA_ROOT = os.path.join(CONTENT_DIR, 'media')
-MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [
     os.path.join(CONTENT_DIR, 'assets'),
