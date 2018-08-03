@@ -31,6 +31,8 @@ pip install pipenv
 
 pipenv install
 pipenv shell
+
+python meli-pythonSDK/setup.py install
 ```
 
 ### Apply migrations
