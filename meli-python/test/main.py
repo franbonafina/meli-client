@@ -23,7 +23,7 @@ def test_user(meli):
                           attributes=['nickname'])
     print (user['nickname'])
 
-"""  
+ 
 @print_test_message
 def test_users_details(meli):
     users = meli.query_url(resource_part=meliresources.USERS_DETAILS,
@@ -77,7 +77,7 @@ def test_add_payment_method(meli):
                                      ids={'user_id':USERID,'pay_id':'redlink'},
                                      access_token=True,
                                      body=body)
-    print payment_methods """
+    print payment_methods 
         
 if __name__ == '__main__':
     meli = MeliCore(client_id=CLIENT_ID,client_secret=CLIENT_SECRET)

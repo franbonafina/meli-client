@@ -1,24 +1,4 @@
-# MercadoLibre's Python SDK
-
-Python SDK for MercadoLibre's Platform.
-
-## How do I install it?
-
-    1) Download or clone repository 
-       https://github.com/joacoRamone/meli-python-sdk.git
-    2) cd meli-pythonSDK
-    3) python setup.py install
-
-## Design considerations
-
-This module has two main components:
-* core.py -> http methods (GET,POST,PUT,DELETE,Authorization)
-* meliresources.py -> Mercado Libre resources from http://developers.mercadolibre.com/API-directory/
-
-## How do I use it?
-We use MeliPy in our Django projects, but it also integrates within any other framework out there (tested in Web2Py, for instance).
-    
-### Create an instance of MeliCore class
+### Create a MeliCore
  
 ```python
 CLIENT_ID = 'your app id'

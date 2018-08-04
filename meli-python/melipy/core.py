@@ -1,7 +1,10 @@
 import requests
 from urllib import urlencode
 
-import constants
+API_ROOT_URL = 'https://api.mercadolibre.com'
+SDK_VERSION = 'MELI-PYTHON-SDK-1.0.0'
+AUTH_URL = 'https://auth.mercadolibre.com.ar/authorization'
+OAUTH_URL = '/oauth/token'
 
 class MeliCore(object):
     def __init__(self,
@@ -19,10 +22,10 @@ class MeliCore(object):
         self.client_secret = client_secret 
         self.site_id = site_id
                 
-        self.API_PREFIX_URL = constants.API_ROOT_URL
-        self.SDK_VERSION = constants.SDK_VERSION
-        self.AUTH_URL = constants.AUTH_URL
-        self.OAUTH_URL = self.API_PREFIX_URL + constants.OAUTH_URL
+        self.API_PREFIX_URL = API_ROOT_URL
+        self.SDK_VERSION = SDK_VERSION
+        self.AUTH_URL = AUTH_URL
+        self.OAUTH_URL = self.API_PREFIX_URL + OAUTH_URL
         self.access_token = None
         self.refsh_token = None
     

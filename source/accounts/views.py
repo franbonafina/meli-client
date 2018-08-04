@@ -1,6 +1,7 @@
 import json
 import melipy.meliresources as meliresources
 from melipy.core import MeliCore
+from urllib.parse import urlparse, parse_qs, urlsplit, urlencode, urljoin
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, REDIRECT_FIELD_NAME
 from django.contrib.auth.tokens import default_token_generator
@@ -8,9 +9,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.utils.crypto import get_random_string
 from django.utils.decorators import method_decorator
-from django.utils.http import is_safe_url
+#from django.utils.http import is_safe_url
 from django.utils.encoding import force_bytes
-from django.utils.http import urlsafe_base64_encode
+#from django.utils.http import urlsafe_base64_encode
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
@@ -27,6 +28,12 @@ class GuestOnlyView(View):
     def dispatch(self, request, *args, **kwargs):
         # Redirect to the index page if the user already authenticated
         if request.user.is_authenticated:
+            # Server meli 'code' response parse to obtain ACCES_TOKEN 
+            url = request.get_full_path()        
+            query = url.split('?',1)[-1]
+            code = query.split('=',1)[-1]            
+            #meli = MeliCore(client_id=settings.CLIENT_ID,client_secret=settings.CLIENT_SECRET)
+            #meli.authorize(code, urlparse('localhost').geturl()) ## HERE ERROR WITH ENCODING :=%3A 
             return redirect(settings.LOGIN_REDIRECT_URL)
 
         return super().dispatch(request, *args, **kwargs)
@@ -64,13 +71,17 @@ class LogInView(GuestOnlyView, FormView):
 
         login(request, form.user_cache)
 
+        """
+        #To make external redirection ? .
         redirect_to = request.POST.get(REDIRECT_FIELD_NAME, request.GET.get(REDIRECT_FIELD_NAME))
         url_is_safe = is_safe_url(redirect_to, allowed_hosts=request.get_host(), require_https=request.is_secure())
-
         if url_is_safe:
             return redirect(redirect_to)
+        """
+        meli = MeliCore(client_id=settings.CLIENT_ID,client_secret=settings.CLIENT_SECRET)
+        auth_url = meli.get_auth_url(redirect_URI=settings.LOGIN_REDIRECT_URL)
 
-        return redirect(settings.LOGIN_REDIRECT_URL)
+        return redirect(auth_url)
 
 
 class SignUpView(GuestOnlyView, FormView):
@@ -88,9 +99,6 @@ class SignUpView(GuestOnlyView, FormView):
 
         # Create a user record
         user.save()
-
-        #meli
-
 
         # Change the username to the "user_ID" form
         if settings.ENABLE_USER_ACTIVATION:
@@ -112,8 +120,8 @@ class SignUpView(GuestOnlyView, FormView):
         return redirect('index')
 
 
-class ChangeProfileView(LoginRequiredMixin, FormView):
-    template_name = 'accounts/profile/change_profile.html'
+class CreateNewPublicationView(LoginRequiredMixin, FormView):
+    template_name = 'accounts/publications/createNewPublication.html'
     form_class = ChangeProfileForm
 
     def get_initial(self):
@@ -131,7 +139,10 @@ class ChangeProfileView(LoginRequiredMixin, FormView):
 
         messages.success(self.request, _('Profile data has been successfully updated.'))
 
-        return redirect('accounts:change_profile')
+        return redirect('accounts:createNewPublication')
+
+class PublicationsListView(LoginRequiredMixin):
+    template_name= 'accounts/publications/publicationList.html'
 
 
 class LogOutView(LoginRequiredMixin, BaseLogoutView):

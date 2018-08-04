@@ -74,26 +74,7 @@ class SignUpForm(UserCreationForm):
 
         return email
 
-
-
-class ChangeProfileForm(forms.Form):
+class createNewPublication(forms.Form):
     first_name = forms.CharField(label=_('First name'), max_length=30, required=False)
     last_name = forms.CharField(label=_('Last name'), max_length=150, required=False)
 
-
-class RemindUsernameForm(UserCacheMixin, forms.Form):
-    email = forms.EmailField(label=_('Email'))
-
-    def clean_email(self):
-        email = self.cleaned_data['email']
-
-        user = User.objects.filter(email__iexact=email).first()
-        if not user:
-            raise ValidationError(_('You entered an invalid email address.'))
-
-        if not user.is_active:
-            raise ValidationError(_('This account is not active.'))
-
-        self.user_cache = user
-
-        return email

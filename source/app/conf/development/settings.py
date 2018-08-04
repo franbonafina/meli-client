@@ -8,10 +8,17 @@ warnings.simplefilter('error', DeprecationWarning)
 BASE_DIR = dirname(dirname(dirname(dirname(os.path.abspath(__file__)))))
 CONTENT_DIR = os.path.join(BASE_DIR, 'content')
 
+CLIENT_ID = '2019588201272480'
+CLIENT_SECRET = 'CdENrQu1JRsvA5uPRM2ipLSSmxLpGUTg'
+USERID = 'user id'
+USERSID = 'users id' # I want obtain this for any user .
 SECRET_KEY = 'NhfTvayqggTBPswCXXhWaN69HuglgZIkM'
 DEBUG = True
 ALLOWED_HOSTS = []
 SITE_ID = 1
+LOGIN_REDIRECT_URL = 'index'
+LOCALHOST = 'localhost:8000'
+LOGIN_URL = 'accounts:log_in'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -89,8 +96,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ENABLE_USER_ACTIVATION = True
 LOGIN_VIA_EMAIL = True
 USE_REMEMBER_ME = True
-LOGIN_REDIRECT_URL = 'index'
-LOGIN_URL = 'accounts:log_in'
 SIGN_UP_FIELDS = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
 
