@@ -24,6 +24,19 @@ git clone https://github.com/franbonafina/djangoMercadoLibre
 cd djangoMercadoLibre
 ```
 
+## Local steps
+```
+pip install django==2.7
+
+cd meli-python
+python setup.py install
+
+cd ..
+
+python source/manage.py migrations
+python source/manage.py runserver
+```
+
 ### Install dependencies & activate virtualenv
 
 ```
